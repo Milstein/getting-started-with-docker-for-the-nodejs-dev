@@ -1,6 +1,6 @@
 **Difficulty level:** Beginner
 
-**Requirements:** Mac OS X (This tutorial assumes you're using a Mac, but you can find installation instructions for [Windows](https://docs.docker.com/installation/windows/) or[Ubuntu](https://docs.docker.com/installation/ubuntulinux/) and skip ahead the _Setup_ section)
+**Requirements:** Mac OS X (This tutorial assumes you're using a Mac, but you can find installation instructions for [Windows](https://docs.docker.com/installation/windows/) or [Ubuntu](https://docs.docker.com/installation/ubuntulinux/) and skip ahead the _Setup_ section)
 
 [Docker](https://www.docker.com/) has just celebrated its [2nd birthday](https://blog.docker.com/2015/03/dockers-2nd-birthday-wishes-qa-with-solomon-hykes-founder-of-docker/), but it's still a "new" powerful piece of technology. A lot of developer friends that I talk to have either heard or read about it but haven't actually used it. It lets you do really cool things like quickly test your app in development with the exact same environment as in QA/Test/Production, or share that app with other developers for a quick a painless onboarding. A commonly used analogy for Docker is to **compare it to actual real-life containers or lego bricks**: it provides a **fundamental unit**, and with it a way for **an application** to be **portable and moveable**, regardless of hardware.
 
