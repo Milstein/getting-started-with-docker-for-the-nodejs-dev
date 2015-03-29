@@ -36,7 +36,7 @@ You've probably heard of Docker by now. Every day there's some front-page Hacker
 
 Okay, so what is Docker? Well, Docker can be a reference to a few things:
 
-*   **Docker client:** this is what's running in our machine. It's the docker binary that we'll be interfacing with whenever we open a terminal and type `_$ docker pull_` or `_$ docker run_`. It connects to the docker daemon which does all the heavy-lifting, either in the same host (in the case of Linux) or remotely (in our case, interacting with our VirtualBox VM).
+*   **Docker client:** this is what's running in our machine. It's the docker binary that we'll be interfacing with whenever we open a terminal and type `$ docker pull` or `$ docker run`. It connects to the docker daemon which does all the heavy-lifting, either in the same host (in the case of Linux) or remotely (in our case, interacting with our VirtualBox VM).
 *   **Docker daemon:** this is what does the heavy lifting of building, running, and distributing your Docker containers.
 *   **Docker Images:** docker images are the blueprints for our applications. Keeping with the container/lego brick analogy, they're our blueprints for actually building a real instance of them. An image can be an OS like Ubuntu, but it can also be an Ubuntu with your web application and all its necessary packages installed.
 *   **Docker Container:** containers are created from docker images, and they are the real instances of our containers/lego bricks. They can be started, run, stopped, deleted, and moved.
@@ -93,7 +93,7 @@ Awesome! Docker is installed. ☺
 
 #### Dockerfiles and Docker Hub
 
-Before we move forward, I think it's important to understand what happened when we executed `_$ docker run hello-world_` so you're not just copy+pasting the next instructions. `_docker run_` is the basic command that we use to start a container based on an image while passing commands to it. In this case, we said, "Docker, start a container based on the image hello-world, no extra commands". Then it downloaded the image from and started a container inside the VirtualBox VM based on that image. But where does the hello-world image come from? That's where Docker Hub comes in. The Docker Hub, like we mentioned in the introduction, is the public registry containing container images to be used with Docker, created by Docker, other companies, and individuals. Here you can find the image for hello-world we just executed:
+Before we move forward, I think it's important to understand what happened when we executed `$ docker run hello-world` so you're not just copy+pasting the next instructions. `docker run` is the basic command that we use to start a container based on an image while passing commands to it. In this case, we said, "Docker, start a container based on the image hello-world, no extra commands". Then it downloaded the image from and started a container inside the VirtualBox VM based on that image. But where does the hello-world image come from? That's where Docker Hub comes in. The Docker Hub, like we mentioned in the introduction, is the public registry containing container images to be used with Docker, created by Docker, other companies, and individuals. Here you can find the image for hello-world we just executed:
 
 [Docker Hub Hello-World Image](https://registry.hub.docker.com/u/library/hello-world/)
 
@@ -138,7 +138,7 @@ Let's download the official Ubuntu image:
 $ docker pull ubuntu
 ```
 
-The `_$ docker pull IMAGE_NAME_` command is the way to explicitly download an image, but that is also done if you use the `_$ docker run IMAGE_NAME_` command, and Docker can't find the image you're referring to.
+The `$ docker pull IMAGE_NAME` command is the way to explicitly download an image, but that is also done if you use the `$ docker run IMAGE_NAME` command, and Docker can't find the image you're referring to.
 
 #### Docker Run: Running our Node.js image and accessing the container
 
@@ -156,7 +156,7 @@ So now, let's run a new container with Ubuntu and connect to it:
 $ docker run -i -t ubuntu
 ```
 
-> Note: The run command is huge (check `_$ docker help run_`) and we'll go more in-depth in the next blog post
+> Note: The run command is huge (check `$ docker help run`) and we'll go more in-depth in the next blog post
 
 The -t flag assigns a pseudo-tty or terminal inside our new container and the -i flag allows us to make an interactive connection by grabbing the standard in (STDIN) of the container. If it worked correctly, you should be connected to a terminal inside the container showing something like this:
 
@@ -174,7 +174,7 @@ I think it's nice to stop for a minute and think about what we just did. This is
 
 #### Docker Commit: Installing node, npm, express and committing the changes
 
-Okay, now that we are inside a running Ubuntu container, let's install the tools we need to run a node application (remember that you only need to execute the part after `_$ root:`_ ):
+Okay, now that we are inside a running Ubuntu container, let's install the tools we need to run a node application (remember that you only need to execute the part after `$ root:` ):
 
 ```bash,linenums=true
 $ root: apt-get update  
@@ -184,7 +184,7 @@ $ root: apt-get install nodejs-legacy</pre>
 
 > Note: We need to install `nodejs-legacy` to run the express-generator module
 
-Running `_node -v_` should give you an output:
+Running `node -v` should give you an output:
 
 ```bash,linenums=true
 $ root: node -v  
@@ -203,7 +203,7 @@ Now we have our container with everything we're gonna need installed in it. Let'
 $ root: exit
 ```
 
-When we exit our container, Docker will stop running it. We can use the `_$ docker ps_` command to list containers, so let's do:
+When we exit our container, Docker will stop running it. We can use the `$ docker ps` command to list containers, so let's do:
 
 ```bash,linenums=true
 $ docker ps -a
@@ -213,9 +213,9 @@ $ docker ps -a
   <img src="https://d262ilb51hltx0.cloudfront.net/max/2000/1*l-NGj6PaW9F15wsiOo7OzA.png" alt="terminal containers"/>
 </p>
 
-The `_$ docker ps_` command by default only displays running containers, so we pass the -a flag so we can see our Ubuntu container we just exited.
+The `$ docker ps` command by default only displays running containers, so we pass the -a flag so we can see our Ubuntu container we just exited.
 
-Now we can use that container to create a new image that other people can use. We do that by using the `_commit_` command:
+Now we can use that container to create a new image that other people can use. We do that by using the `commit` command:
 
 ```bash,linenums=true
 $ docker commit -a "Your Name &lt;youremail@email.com&gt;" -m "node and express" CONTAINER_ID node-express:0.1
@@ -243,7 +243,7 @@ Now let's add another tag to our newly created image. Run:
 $ docker tag node-express:0.1 node-express:latest
 ```
 
-It's good practice to tag images with a specific version so people can know exactly which image they're running. Adding the `latest` tag helps so that other people can simply refer to your image when downloading it by its name (node-express in our case), and Docker will automatically download the `latest` tag version. If you run `_$ docker images_` again, you can see that there's two rows with our image, but they both have the same ID, which means they're not ocuppying any extra space in our HD. ☺
+It's good practice to tag images with a specific version so people can know exactly which image they're running. Adding the `latest` tag helps so that other people can simply refer to your image when downloading it by its name (node-express in our case), and Docker will automatically download the `latest` tag version. If you run `$ docker images` again, you can see that there's two rows with our image, but they both have the same ID, which means they're not ocuppying any extra space in our HD. ☺
 
 Now we can start as many containers as we want ready to go with our image! Let's remove our old container:
 
@@ -332,4 +332,4 @@ And have the exact same environment with Ubuntu, Node.js, npm and the express-ge
 
 This is a big introduction, and there's still a lot more to cover but you should be equipped with a basic understanding of what Docker is, how to use its basic functionality and ready to go more in-depth.
 
-In the next tutorial, I'll cover adding a Dockerfile to an existing app, go more in-depth on the `_$ docker run_` command, mounting an app directory inside a container, and linking to another container running a MongoDB instance. ☺
+In the next tutorial, I'll cover adding a Dockerfile to an existing app, go more in-depth on the `$ docker run` command, mounting an app directory inside a container, and linking to another container running a MongoDB instance. ☺
