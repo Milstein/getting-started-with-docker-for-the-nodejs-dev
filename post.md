@@ -11,9 +11,9 @@ In this tutorial, I'll give a quick overview of what Docker is and why you might
 *   Introduction (What's Docker and why use it)
 *   Installation
 *   Docker Hub and Dockerfiles
-*   Docker Pull: Pulling a Node.js image
-*   Docker Run: Running our Node.js image and accessing the container
-*   Docker Commit: Installing express, starting our app and committing the changes
+*   Docker Pull: Pulling an Ubuntu image
+*   Docker Run: Running our Ubuntu image and accessing the container
+*   Docker Commit: Installing node, npm, express and committing the changes
 *   Docker Push: Pushing our container back so other people can use it
 
 #### Notes:
@@ -140,7 +140,7 @@ $ docker pull ubuntu
 
 The `$ docker pull IMAGE_NAME` command is the way to explicitly download an image, but that is also done if you use the `$ docker run IMAGE_NAME` command, and Docker can't find the image you're referring to.
 
-#### Docker Run: Running our Node.js image and accessing the container
+#### Docker Run: Running our Ubuntu image and accessing the container
 
 We've got our Ubuntu image (our blueprint ☺). Now let's start a new container based on our image and pass a command to it:
 
