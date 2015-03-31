@@ -179,7 +179,7 @@ Okay, now that we are inside a running Ubuntu container, let's install the tools
 ```bash,linenums=true
 $ root: apt-get update  
 $ root: apt-get install nodejs  
-$ root: apt-get install nodejs-legacy</pre>
+$ root: apt-get install nodejs-legacy
 ```
 
 > Note: We need to install `nodejs-legacy` to run the express-generator module
