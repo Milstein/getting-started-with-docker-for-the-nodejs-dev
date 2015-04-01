@@ -297,7 +297,7 @@ Now, you might start wondering: this is a lot of work just to have a running app
 
 #### Docker Push: Pushing our container image so other people can use it
 
-Okay, now let's share our "great" Ubuntu image with node and node-express installed so other people can also use it. Exit our running Node application and the container:
+Okay, now let's share our "great" Ubuntu image with node, npm, and express-generator installed so other people can also use it. Exit our running Node application and the container:
 
 ```bash,linenums=true
 # Ctrl+C to stop our node app  
