@@ -32,7 +32,7 @@ And commands inside a container with:
 $ root: command
 ```
 
-#### Introduction
+### Introduction
 
 You've probably heard of Docker by now. Every day there's some front-page HackerNews mention of it, or you see people on Twitter/IRC talking about it. Its popularity has grown enormously in the past couple years, and most cloud providers already support it. If you are curious about it, but still haven't tried it out, this tutorial is for you. ☺
 
@@ -51,7 +51,7 @@ Now that we cleared the different parts of Docker, here are a few reasons why yo
 *   Sharing your app+environment with other developers, which allows for fast/reliable onboarding.
 *   Ability to diff containers (this can be immensely useful in debugging)
 
-#### Installation
+### Installation
 
 Running a container, and therefore Docker, requires a Linux machine. Since we're using a Mac, that means we'll need a VM. To make the installation process easier, we can use Boot2Docker which installs the Boot2Docker management tool, VirtualBox, and sets up a VM inside it with Docker installed.
 
@@ -93,7 +93,7 @@ Awesome! Docker is installed. ☺
 
 (If you have any problems, feel free to ping me or you can find Docker's official installation instructions [here](https://docs.docker.com/installation/mac/))
 
-#### Dockerfiles and Docker Hub
+### Dockerfiles and Docker Hub
 
 Before we move forward, I think it's important to understand what happened when we executed `$ docker run hello-world` so you're not just copy+pasting the next instructions. `docker run` is the basic command that we use to start a container based on an image while passing commands to it. In this case, we said, "Docker, start a container based on the image hello-world, no extra commands". Then it downloaded the image from Docker Hub and started a container inside the VirtualBox VM based on that image. But where does the hello-world image come from? That's where Docker Hub comes in. The Docker Hub, like we mentioned in the introduction, is the public registry containing container images to be used with Docker, created by Docker, other companies, and individuals. Here you can find the image for hello-world we just executed:
 
@@ -115,7 +115,7 @@ INSTRUCTION arguments
 
 So in our hello-world example, we can take a look at the root of the GitHub repo which contains the Dockerfile. The image is being created from another image called "[scratch](https://registry.hub.docker.com/u/library/scratch/)" (all Dockerfiles start with the FROM instruction), then copying the [hello file](https://github.com/docker-library/hello-world/blob/master/hello) to the root of the system, and finally running hello. You can also find the [contents of the hello file here](https://github.com/docker-library/hello-world/blob/master/hello.asm), which contains the output we just saw in our terminal.
 
-#### Docker Pull: Downloading an Ubuntu image
+### Docker Pull: Downloading an Ubuntu image
 
 Now that we know our Docker installation is correctly setup, let's start playing with it! Our next step is getting an Ubuntu image. To find an image we can either go to the [Docker Hub website](https://hub.docker.com/) or just run in the terminal:
 
@@ -142,7 +142,7 @@ $ docker pull ubuntu
 
 The `$ docker pull IMAGE_NAME` command is the way to explicitly download an image, but that is also done if you use the `$ docker run IMAGE_NAME` command, and Docker can't find the image you're referring to.
 
-#### Docker Run: Running our Ubuntu image and accessing the container
+### Docker Run: Running our Ubuntu image and accessing the container
 
 We've got our Ubuntu image (our blueprint ☺). Now let's start a new container based on our image and pass a command to it:
 
@@ -174,7 +174,7 @@ Run ls -ls and see that your running commands in the root of a Ubuntu system. �
 
 I think it's nice to stop for a minute and think about what we just did. This is just one of the awesome parts of containers. We just downloaded and started a container running Ubuntu. That happened (depending on your internet connection) in 5 minutes? Compare that to downloading a VM Ubuntu image and spinning up a new VM. That would probably take you around 15–30min? And then creating new VMs, stopping, rebooting, how long that would take? When you add all of those up, the time you can save using containers is enormous!
 
-#### Docker Commit: Installing node, npm, express and committing the changes
+### Docker Commit: Installing node, npm, express and committing the changes
 
 Okay, now that we are inside a running Ubuntu container, let's install the tools we need to run a node application (remember that you only need to execute the part after `$ root:` ):
 
@@ -297,7 +297,7 @@ Ta-ra!
 
 Now, you might start wondering: this is a lot of work just to have a running application! I already have my development environment, I could have done all of that in 30 seconds! Well, that's true, but in this tutorial we're running a super simple application that doesn't have many dependencies. When you are running a real project that has much more dependencies, you may require a development environment with different packages, Python, Redis, MongoDB, Postgres, Node.js or io.js, etc. There're so many things involved that can make an application running in your computer **not run** correctly **in another machine** (or in QA/Test/Production), that is the main reason why Docker is so popular. Going back to the tutorial introduction, by providing **a fundamental unit** (our container/lego brick) that can be executed independent of hardware, and also easily run, moved, shared, Docker absolutely changes the way we can develop, test and share applications.
 
-#### Docker Push: Pushing our container image so other people can use it
+### Docker Push: Pushing our container image so other people can use it
 
 Okay, now let's share our "great" Ubuntu image with node, npm, and express-generator installed so other people can also use it. Exit our running Node application and the container:
 
@@ -330,7 +330,7 @@ $ docker pull your_docker_hub_username/node-express
 
 And have the exact same environment with Ubuntu, Node.js, npm and the express-generator package as the one we previously created.
 
-#### Next post: Adding Docker to an existing application, running and linking containers
+### Next post: Adding Docker to an existing application, running and linking containers
 
 This is a big introduction, and there's still a lot more to cover but you should be equipped with a basic understanding of what Docker is, how to use its basic functionality and ready to go more in-depth.
 
