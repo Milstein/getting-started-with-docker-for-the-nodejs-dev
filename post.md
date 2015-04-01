@@ -1,3 +1,5 @@
+(versão em português do post aqui)
+
 **Difficulty level:** Beginner
 
 **Requirements:** Mac OS X (This tutorial assumes you're using a Mac, but you can find installation instructions for [Windows](https://docs.docker.com/installation/windows/) or [Ubuntu](https://docs.docker.com/installation/ubuntulinux/) and skip ahead the _Setup_ section)
@@ -333,3 +335,7 @@ And have the exact same environment with Ubuntu, Node.js, npm and the express-ge
 This is a big introduction, and there's still a lot more to cover but you should be equipped with a basic understanding of what Docker is, how to use its basic functionality and ready to go more in-depth.
 
 In the next tutorial, I'll cover adding a Dockerfile to an existing app, go more in-depth on the `$ docker run` command, mounting an app directory inside a container, and linking to another container running a MongoDB instance. ☺
+
+---
+
+This post is also available on my Medium page here.
