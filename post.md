@@ -1,4 +1,6 @@
-(versão em português do post aqui)
+> Versão em português do post [aqui](https://www.airpair.com/posts/review/551724576aa7ad11003c8039)
+
+> Note: this post is also available on Medium [here](https://medium.com/@heitorburger/getting-started-with-docker-for-the-node-js-developer-6ede42731d10)
 
 **Difficulty level:** Beginner
 
