@@ -278,14 +278,14 @@ $ root: npm install
 $ root: npm start
 ```
 
-Now we have a Node.js application running inside a container, and exposing port 3000\. To see our application we need to find the Boot2Docker VM IP, so open another terminal and run:
+Now we have a Node.js application running inside a container, and exposing port 3000. To see our application we need to find the Boot2Docker VM IP, so open another terminal and run:
 
 ```bash,linenums=true
 $ boot2docker ip  
 192.168.59.103
 ```
 
-And remember that we actually exposed port 8080 of our container to access port 3000\. So go to your browser and open:
+And remember that we actually exposed port 8080 of our container to access port 3000. So go to your browser and open:
 
 ```bash,linenums=true
 192.168.59.103:8080
